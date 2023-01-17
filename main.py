@@ -1,5 +1,7 @@
 from tkinter import *
 
+import customtkinter
+
 expression = ""
 history = []
 
@@ -61,82 +63,81 @@ def update_history_display():
 
 root = Tk()
 
-root.configure(background="grey")
+root.configure(background='LightSkyBlue2')
 root.title("Calculator")
-root.geometry("270x300")
+root.geometry("400x450")
 
 equation = StringVar()
 
-expression_field = Entry(root, textvariable=equation, width=21)
-expression_field.grid(columnspan=4, ipadx=70)
+expression_field = customtkinter.CTkEntry(master=root, textvariable=equation, width=360, height=50, corner_radius=100, fg_color='white', border_color='LightSkyBlue3', text_color='black', font=('Roboto', 25))
+expression_field.grid(columnspan=10, pady=10, padx=20)
 
-sqrt = Button(root, text=' √ ', fg=button_color2, bg=button_color, command=lambda: press("**0.5"), height=1, width=7)
+sqrt = customtkinter.CTkButton(master=root, text=" √ ", command=lambda: press("**0.5"), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 sqrt.grid(row=1, column=0)
-
-sqr = Button(root, text=' x^2 ', fg=button_color2, bg=button_color, command=lambda: press("**2"), height=1, width=7)
+sqr = customtkinter.CTkButton(master=root, text=" x^2 ", command=lambda: press("**2"), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 sqr.grid(row=1, column=1)
 
-on = Button(root, text=' 1/x ', fg=button_color2, bg=button_color, command=lambda: press("1/"), height=1, width=7)
+on = customtkinter.CTkButton(master=root, text=" 1/x ", command=lambda: press("1/"), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 on.grid(row=1, column=2)
 
-button0 = Button(root, text=' 0 ', fg=button_color2, bg=button_color,  command=lambda: press(0), height=1, width=7)
+button0 = customtkinter.CTkButton(master=root, text=" 0 ", command=lambda: press(0), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button0.grid(row=5, column=0)
 
-button1 = Button(root, text=' 1 ', fg=button_color2, bg=button_color,  command=lambda: press(1), height=1, width=7)
+button1 = customtkinter.CTkButton(master=root, text=" 1 ", command=lambda: press(1), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button1.grid(row=2, column=0)
 
-button2 = Button(root, text=' 2 ', fg=button_color2, bg=button_color, command=lambda: press(2), height=1, width=7)
+button2 = customtkinter.CTkButton(master=root, text=" 2 ", command=lambda: press(2), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button2.grid(row=2, column=1)
 
-button3 = Button(root, text=' 3 ', fg=button_color2, bg=button_color, command=lambda: press(3), height=1, width=7)
+button3 = customtkinter.CTkButton(master=root, text=" 3 ", command=lambda: press(3), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button3.grid(row=2, column=2)
 
-button4 = Button(root, text=' 4 ', fg=button_color2, bg=button_color, command=lambda: press(4), height=1, width=7)
+button4 = customtkinter.CTkButton(master=root, text=" 4 ", command=lambda: press(4), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button4.grid(row=3, column=0)
 
-button5 = Button(root, text=' 5 ', fg=button_color2, bg=button_color, command=lambda: press(5), height=1, width=7)
+button5 = customtkinter.CTkButton(master=root, text=" 5 ", command=lambda: press(5), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button5.grid(row=3, column=1)
 
-button6 = Button(root, text=' 6 ', fg=button_color2, bg=button_color, command=lambda: press(6), height=1, width=7)
+button6 = customtkinter.CTkButton(master=root, text=" 6 ", command=lambda: press(6), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button6.grid(row=3, column=2)
 
-button7 = Button(root, text=' 7 ', fg=button_color2, bg=button_color, command=lambda: press(7), height=1, width=7)
+button7 = customtkinter.CTkButton(master=root, text=" 7 ", command=lambda: press(7), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button7.grid(row=4, column=0)
 
-button8 = Button(root, text=' 8 ', fg=button_color2, bg=button_color, command=lambda: press(8), height=1, width=7)
+button8 = customtkinter.CTkButton(master=root, text=" 8 ", command=lambda: press(8), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button8.grid(row=4, column=1)
 
-button9 = Button(root, text=' 9 ', fg=button_color2, bg=button_color, command=lambda: press(9), height=1, width=7)
+button9 = customtkinter.CTkButton(master=root, text=" 9 ", command=lambda: press(9), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 button9.grid(row=4, column=2)
 
-plus = Button(root, text=' + ', fg=button_color2, bg=button_color, command=lambda: press("+"), height=1, width=7)
+plus = customtkinter.CTkButton(master=root, text=" + ", command=lambda: press("+"), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 plus.grid(row=2, column=3)
 
-minus = Button(root, text=' - ', fg=button_color2, bg=button_color, command=lambda: press("-"), height=1, width=7)
+minus = customtkinter.CTkButton(master=root, text=" - ", command=lambda: press("-"), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 minus.grid(row=3, column=3)
 
-multiply = Button(root, text=' * ', fg=button_color2, bg=button_color, command=lambda: press("*"), height=1, width=7)
+multiply = customtkinter.CTkButton(master=root, text=" * ", command=lambda: press("*"), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 multiply.grid(row=4, column=3)
 
-divide = Button(root, text=' / ', fg=button_color2, bg=button_color, command=lambda: press("/"), height=1, width=7)
+divide = customtkinter.CTkButton(master=root, text=" / ", command=lambda: press("/"), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 divide.grid(row=5, column=3)
 
-equal = Button(root, text=' = ', fg=button_color2, bg=button_color, command=equalpress, height=1, width=7)
+equal = customtkinter.CTkButton(master=root, text=" = ", command=equalpress, height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 equal.grid(row=5, column=2)
 
-clear = Button(root, text='Clear', fg=button_color2, bg=button_color, command=clear, height=1, width=7)
+clear = customtkinter.CTkButton(master=root, text=" Clear ", command=clear, height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 clear.grid(row=5, column=1)
 
-Decimal = Button(root, text='.', fg=button_color2, bg=button_color, command=lambda: press('.'), height=1, width=7)
+Decimal = customtkinter.CTkButton(master=root, text=" . ", command=lambda: press("."), height=10, width=10, font=('Roboto', 30), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
 Decimal.grid(row=6, column=0)
 
-history_display = Listbox(root,)
+history_display = Listbox(root, font=('Roboto', 15))
 history_display.grid(row=7, column=0, columnspan=4, ipadx=100, pady=5)
 
 scrollbar = Scrollbar(history_display)
 scrollbar.pack(side=RIGHT, fill='both')
 
-clear_history = Button(root, text='Clear History', fg=button_color2, bg=button_color, command=clear_history, height=1, width=9)
-clear_history.grid(row=8, column=3)
+clear_history = customtkinter.CTkButton(master=root, text="Clear History", command=clear_history, height=10, width=10, font=('Roboto', 15), corner_radius=50, fg_color='LightSkyBlue2', hover_color='grey', text_color='white')
+clear_history.grid(row=7, column=4)
 
 root.mainloop()
