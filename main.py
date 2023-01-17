@@ -62,7 +62,7 @@ def update_history_display():
 
 
 root = Tk()
-
+root.resizable(False, False)
 root.configure(background='LightSkyBlue2')
 root.title("Calculator")
 root.geometry("400x450")
