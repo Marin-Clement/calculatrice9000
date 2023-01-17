@@ -44,6 +44,12 @@ def add_to_history(expression, result):
     update_history_display()
 
 
+def clear_history():
+    global history
+    history = []
+    update_history_display()
+
+
 def update_history_display():
     global expression
     history_display.delete(0, END)
@@ -63,6 +69,15 @@ equation = StringVar()
 
 expression_field = Entry(root, textvariable=equation, width=21)
 expression_field.grid(columnspan=4, ipadx=70)
+
+sqrt = Button(root, text=' √ ', fg=button_color2, bg=button_color, command=lambda: press("**0.5"), height=1, width=7)
+sqrt.grid(row=1, column=0)
+
+sqr = Button(root, text=' x^2 ', fg=button_color2, bg=button_color, command=lambda: press("**2"), height=1, width=7)
+sqr.grid(row=1, column=1)
+
+on = Button(root, text=' 1/x ', fg=button_color2, bg=button_color, command=lambda: press("1/"), height=1, width=7)
+on.grid(row=1, column=2)
 
 button0 = Button(root, text=' 0 ', fg=button_color2, bg=button_color,  command=lambda: press(0), height=1, width=7)
 button0.grid(row=5, column=0)
@@ -112,13 +127,16 @@ equal.grid(row=5, column=2)
 clear = Button(root, text='Clear', fg=button_color2, bg=button_color, command=clear, height=1, width=7)
 clear.grid(row=5, column=1)
 
-Decimal= Button(root, text='.', fg=button_color2, bg=button_color, command=lambda: press('.'), height=1, width=7)
+Decimal = Button(root, text='.', fg=button_color2, bg=button_color, command=lambda: press('.'), height=1, width=7)
 Decimal.grid(row=6, column=0)
 
 history_display = Listbox(root,)
-history_display.grid(row=8, column=0, columnspan=4, ipadx=100, pady=10)
+history_display.grid(row=7, column=0, columnspan=4, ipadx=100, pady=5)
 
 scrollbar = Scrollbar(history_display)
 scrollbar.pack(side=RIGHT, fill='both')
+
+clear_history = Button(root, text='Clear History', fg=button_color2, bg=button_color, command=clear_history, height=1, width=9)
+clear_history.grid(row=8, column=3)
 
 root.mainloop()
